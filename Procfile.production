@@ -1,0 +1,2 @@
+web:    rvm use 1.9.2@eventsmash && bundle exec thin start -p $PORT -e production
+worker: RAILS_ENV=production rvm use 1.9.2@eventsmash && bundle exec rake jobs:work 
