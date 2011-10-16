@@ -5,7 +5,9 @@
 <h2>What?</h2>
 <ul class="categories filter">
 	<% @categories.each do |c| -%>
-	<li><%= check_box_tag 'Categories', :checked => 'checked' %><%= link_to c.name, '#', { :"data-original-title" => c.name, :"data-content" => c.description } %></li>
+	<% if c.events.count > 0 %>
+	<li><%= check_box_tag 'Categories', c.name, {:checked => 'checked'} %><%= link_to c.name, '#', { :"data-original-title" => c.name, :"data-content" => c.description } %></li>
+	<% end -%>
 	<% end -%>
 </ul>
 <h2>When?</h2>
@@ -112,3 +114,27 @@ Briefly tell others what's going on</span>
   <% end -%>
 </div>
 
+<% content_for :scripts do %>
+<% javascript_tag do %>
+	$(document).ready(function(){
+		$('.categories input').change( function () {
+			$input = $(this);
+			len = Gmaps.map.markers.length
+			val = $input.val();
+			if( $input.is(':checked') ) {
+				for( $i = 0; $i < len;  $i++  ) {
+					if( jQuery.inArray( val, Gmaps.map.markers[$i].categories ) ) {
+						Gmaps.map.showMarker( Gmaps.map.markers[$i] );
+					}
+				}
+			} else {
+				for( $i = 0; $i < len;  $i++  ) {
+					if( jQuery.inArray( val, Gmaps.map.markers[$i].categories ) ) {
+						Gmaps.map.hideMarker( Gmaps.map.markers[$i] );
+					}
+				}
+			}
+		});
+	});
+	<% end %>
+	<% end %>
