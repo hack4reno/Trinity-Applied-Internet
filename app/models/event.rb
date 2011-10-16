@@ -3,6 +3,7 @@ class Event < ActiveRecord::Base
   acts_as_gmappable :process_geocoding => false
   has_many :event_categories, :dependent => :destroy
   has_many :categories, :through => :event_categories
+  accepts_nested_attributes_for :categories
   
   belongs_to :original_event, :class_name => Event
   belongs_to :place

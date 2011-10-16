@@ -22,6 +22,7 @@ ActiveAdmin.register Event do
       f.input :place
       f.input :age_rating
       f.input :price
+      f.input :categories, :as => :check_boxes
     end
     f.buttons
   end  
