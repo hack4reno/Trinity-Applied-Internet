@@ -243,3 +243,10 @@ a.hover { text-decoration: none; font-weight: bold; font-family: 'DroidSansBold'
 	padding:25px;
 	color:#fff;	
 }
+
+.slide-out-div {
+    padding: 20px;
+    width: 450px;
+    background: #EEEEEE;
+    border: 1px solid #29216d;
+}

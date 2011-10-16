@@ -5,7 +5,7 @@
 <h2>What?</h2>
 <ul class="categories filter">
 	<% @categories.each do |c| -%>
-	<li><%= check_box_tag 'Categories', :checked => 'checked' %><%= link_to c.name, :title => c.description, :name => 'name' %></li>
+	<li><%= check_box_tag 'Categories', :checked => 'checked' %><%= link_to c.name, '#', { :"data-original-title" => c.name, :"data-content" => c.description } %></li>
 	<% end -%>
 </ul>
 <h2>When?</h2>
@@ -23,9 +23,94 @@
 <%= @events %>
 -->
 
-<div>
-<%= gmaps({
-"map_options" => { "zoom" => 16, "auto_adjust" => false },
-"markers" => { "data" => @events }
-}) %>
+
+        	<ul class="tabs">
+  				<li class="active"><a href="#mapevents">Map Events</a></li>
+  				<li><a href="#listevents">List Events</a></li>
+			</ul>
+ 
+<div class="pill-content">
+  <div class="active" id="mapevents">
+		<div>
+		<%= gmaps({
+		"map_options" => { "zoom" => 16, "auto_adjust" => false },
+		"markers" => { "data" => @events }
+		}) %>
+		</div>
+  </div>
+  <div id="listevents">
+  	<h2>Event List</h2>
+  	<h3>Sunday, October 15, 2011</h3>
+  	<ul>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  	</ul>
+  	<h3>Monday, October 16, 2011</h3>
+  	<ul>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  	</ul>
+  	<h3>Tuesday, October 17, 2011</h3>
+  	<ul>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  	</ul>
+  	
+  </div>
 </div>
+
+<div class="slide-out-div">
+  <a class="handle" href="http://link-for-non-js-users.html">Content</a>
+  <h3></h3>
+  <form>
+            	<fieldset>
+<legend>Tell us what's happening</legend>
+<div class="clearfix">
+<label for="">Event Name</label>
+<div class="input">
+<input type="text" size="30" name="xlInput" id="xlInput" class="xlarge">
+</div>
+</div> <!-- /clearfix -->
+<div class="clearfix">
+<label for="textarea">Description</label>
+<div class="input">
+<textarea name="textarea" id="textarea" class="large"></textarea>
+<span class="help-block">
+Breifly tell others what's going on</span>
+</div> </div> <!-- /clearfix -->
+<div class="clearfix">
+<label for="">Category</label>
+<div class="input">
+<select>
+<option>Government</option>
+<option>Food</option>
+<option>Sports</option>
+<option>Music</option>
+<option>Educational</option>
+</select>
+</div>
+</div> <!-- /clearfix -->
+<div class="clearfix">
+<label for="">Place</label>
+<div class="input">
+<select>
+<option>Place #1</option>
+<option>Place #2</option>
+<option>Place #3</option>
+<option>Place #4</option>
+<option>Place #5</option>
+</select>
+</div>
+</div> <!-- /clearfix -->
+
+<div class="actions">
+<button class="btn primary" type="submit">Add Event</button>&nbsp;<button class="btn"
+type="reset">Cancel</button>
+</div>
+</fieldset>
+            </form>
+</div>
+
