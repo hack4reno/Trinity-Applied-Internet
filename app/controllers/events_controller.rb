@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     @event.start_at = Date.today
     
     @categories = Category.find( :all, :order => :name )
-    @events_list = Event.find(:all, :conditions => ['start_at >= ?', Date.today], :order => 'start_at desc')
+    @events_list = Event.find(:all, :conditions => ['start_at >= ?', Date.today], :order => 'start_at asc')
   end
 
   def create
