@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all.to_gmaps4rails do |event|
-      "\"title\": \"#{event.name}\", \"icon\": \"http://eventsmashapp.com/assets/#{event.icon_name}.png\""
+      "\"title\": \"#{event.name}\", \"picture\": \"http://eventsmashapp.com/assets/#{event.icon_name}.png\", \"width\": \"25\", \"height\": \"25\""
     end
     @event = Event.new
     @event.event_categories << EventCategory.new
