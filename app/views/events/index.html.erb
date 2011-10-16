@@ -59,52 +59,56 @@ last_day = nil
 <div class="slide-out-div">
   <a class="handle" href="http://link-for-non-js-users.html">Content</a>
   <h3></h3>
-  <form>
+<%= form_for @event do |f| -%>
             	<fieldset>
 <legend>Tell us what's happening</legend>
 <div class="clearfix">
-<label for="">Event Name</label>
+	<%= f.label :name, 'Event Name' %>
 <div class="input">
-<input type="text" size="30" name="xlInput" id="xlInput" class="xlarge">
+	<%= f.text_field :name, { :size => 30, :class => "xLarge" } %>
 </div>
 </div> <!-- /clearfix -->
+
 <div class="clearfix">
-<label for="textarea">Description</label>
+	<%= f.label :description, 'Description' %>
 <div class="input">
-<textarea name="textarea" id="textarea" class="large"></textarea>
+	<%= f.text_area :description, { :rows => 3, :cols => 30 } %>
 <span class="help-block">
-Breifly tell others what's going on</span>
+Briefly tell others what's going on</span>
 </div> </div> <!-- /clearfix -->
+
 <div class="clearfix">
-<label for="">Category</label>
+	<%= f.label :start_at, 'Date' %>
 <div class="input">
-<select>
-<option>Government</option>
-<option>Food</option>
-<option>Sports</option>
-<option>Music</option>
-<option>Educational</option>
-</select>
-</div>
+	<%= f.text_field :start_at,  %>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#event_start_at').datepicker();
+	});
+	</script>
+</div> </div> <!-- /clearfix -->
+
+<%= f.fields_for :event_categories do |ef| -%>
+<div class="clearfix">
+	<%= ef.label :category_id, 'Category' %>
+	<div class="input">
+		<%= ef.collection_select :category_id, Category.find(:all,:order => :name), :uuid, :name %>
+	</div>
 </div> <!-- /clearfix -->
+<% end -%>
+
 <div class="clearfix">
-<label for="">Place</label>
+	<%= f.label :place_id, 'Place' %>
 <div class="input">
-<select>
-<option>Place #1</option>
-<option>Place #2</option>
-<option>Place #3</option>
-<option>Place #4</option>
-<option>Place #5</option>
-</select>
+	<%= f.collection_select :place_id, Place.find(:all,:order => :name), :uuid, :name %>
 </div>
 </div> <!-- /clearfix -->
 
 <div class="actions">
-<button class="btn primary" type="submit">Add Event</button>&nbsp;<button class="btn"
-type="reset">Cancel</button>
+	<%= f.submit 'Add Event', :class => 'btn primary' %>
+	&nbsp;<button class="btn" type="reset">Cancel</button>
 </div>
 </fieldset>
-            </form>
+  <% end -%>
 </div>
 
