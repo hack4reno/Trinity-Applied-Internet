@@ -30,6 +30,7 @@ gem 'bartt-ssl_requirement', :require => 'ssl_requirement'
 
 gem 'postmark-rails'
 gem 'devise', :git => 'git://github.com/plataformatec/devise' 
+gem 'devise_oauth2_providable'
 gem 'cancan'
 gem 'omniauth', ">=0.2.6"
 gem 'oa-openid', :require => 'omniauth/openid'

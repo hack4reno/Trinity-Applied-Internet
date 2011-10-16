@@ -9,7 +9,7 @@ class CreatePrices < ActiveRecord::Migration
 
     Price.reset_column_information
     
-    %w{$ $$ $$$ $$$$ $$$$$ Free}.each do |name|
+    %w{$ $$ $$$ $$$$ $$$$$}.each do |name|
       Price.create! :name => name
     end
   end

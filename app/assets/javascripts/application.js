@@ -13,6 +13,7 @@
 $(document).ready(function(){
 	$('.alert-message').alert();
 	$('.topbar').dropdown();
+	$(".span4 .filter a[title]").tooltip();
 });
 
 function keys(obj){

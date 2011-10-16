@@ -207,10 +207,10 @@ Devise.setup do |config|
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
   
-  config.omniauth :facebook, "253335958018394", "e37eeeb05e235c4e2b373871dbe90e3d",
+  config.omniauth :facebook, Settings.facebook.app_id, Settings.facebook.app_secret,
                   {:client_options => {:ssl => {:ca_file => "#{Rails.root}/cacert.crt"}}} 
 
-  config.omniauth :twitter, "253335958018394", "e37eeeb05e235c4e2b373871dbe90e3d",
+  config.omniauth :twitter, Settings.twitter.app_id, Settings.twitter.app_secret,
                   {:client_options => {:ssl => {:ca_file => "#{Rails.root}/cacert.crt"}}} 
 
   config.omniauth :foursquare, Settings.foursquare.app_id, Settings.foursquare.app_secret,

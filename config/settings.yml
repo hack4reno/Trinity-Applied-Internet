@@ -1,6 +1,6 @@
 twitter:
-  consumer_key: "XeygcQwuvZ22QpbXt4RRQg"
-  consumer_secret: "yD1ZaLurB2VVUtQeOiCV3nG1kY8RnFGHTUW4CnqWbM"
+  app_id: "XeygcQwuvZ22QpbXt4RRQg"
+  app_secret: "yD1ZaLurB2VVUtQeOiCV3nG1kY8RnFGHTUW4CnqWbM"
 facebook:
   app_id: "245368128843885"
   app_secret: "b043aa6d519436e14dc0f9832d299647"

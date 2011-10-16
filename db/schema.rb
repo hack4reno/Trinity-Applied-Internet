@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111016045321) do
+ActiveRecord::Schema.define(:version => 20111016140853) do
+
+  create_table "access_tokens", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "client_id"
+    t.integer  "refresh_token_id"
+    t.string   "token"
+    t.datetime "expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "access_tokens", ["client_id"], :name => "index_access_tokens_on_client_id"
+  add_index "access_tokens", ["expires_at"], :name => "index_access_tokens_on_expires_at"
+  add_index "access_tokens", ["token"], :name => "index_access_tokens_on_token", :unique => true
+  add_index "access_tokens", ["user_id"], :name => "index_access_tokens_on_user_id"
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -53,6 +68,21 @@ ActiveRecord::Schema.define(:version => 20111016045321) do
     t.datetime "updated_at"
   end
 
+  create_table "authorization_codes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "client_id"
+    t.string   "token"
+    t.datetime "expires_at"
+    t.string   "redirect_uri"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authorization_codes", ["client_id"], :name => "index_authorization_codes_on_client_id"
+  add_index "authorization_codes", ["expires_at"], :name => "index_authorization_codes_on_expires_at"
+  add_index "authorization_codes", ["token"], :name => "index_authorization_codes_on_token", :unique => true
+  add_index "authorization_codes", ["user_id"], :name => "index_authorization_codes_on_user_id"
+
   create_table "authorizations", :id => false, :force => true do |t|
     t.string   "uuid",         :limit => 36,                    :null => false
     t.string   "user_id",      :limit => 36,                    :null => false
@@ -77,6 +107,18 @@ ActiveRecord::Schema.define(:version => 20111016045321) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "clients", :force => true do |t|
+    t.string   "name"
+    t.string   "redirect_uri"
+    t.string   "website"
+    t.string   "identifier"
+    t.string   "secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "clients", ["identifier"], :name => "index_clients_on_identifier", :unique => true
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -161,6 +203,20 @@ ActiveRecord::Schema.define(:version => 20111016045321) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "refresh_tokens", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "client_id"
+    t.string   "token"
+    t.datetime "expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "refresh_tokens", ["client_id"], :name => "index_refresh_tokens_on_client_id"
+  add_index "refresh_tokens", ["expires_at"], :name => "index_refresh_tokens_on_expires_at"
+  add_index "refresh_tokens", ["token"], :name => "index_refresh_tokens_on_token", :unique => true
+  add_index "refresh_tokens", ["user_id"], :name => "index_refresh_tokens_on_user_id"
 
   create_table "repeat_frequencies", :id => false, :force => true do |t|
     t.string   "uuid",       :limit => 36, :null => false
