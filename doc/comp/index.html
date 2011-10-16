@@ -26,6 +26,35 @@
 	<script src="assets/application.js?body=1" type="text/javascript"></script>
 	
 	<script src="assets/jquery.tools.min.js"></script>
+	<script src="assets/jquery.tabSlideOut.v1.3.js"></script>
+	
+	<script type="text/javascript">
+    $(function(){
+        $('.slide-out-div').tabSlideOut({
+            tabHandle: '.handle',                     //class of the element that will become your tab
+            pathToTabImage: 'assets/add-event-button.jpg', //path to the image for the tab //Optionally can be set using css
+            imageHeight: '202px',                     //height of tab image           //Optionally can be set using css
+            imageWidth: '41px',                       //width of tab image            //Optionally can be set using css
+            tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
+            speed: 300,                               //speed of animation
+            action: 'click',                          //options: 'click' or 'hover', action to trigger animation
+            topPos: '200px',                          //position from the top/ use if tabLocation is left or right
+            leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
+            fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
+        });
+
+    });
+
+    </script>
+    <style type="text/css">
+      
+      .slide-out-div {
+          padding: 20px;
+          width: 450px;
+          background: #EEEEEE;
+          border: 1px solid #29216d;
+      }      
+      </style>
 
 </head>
 <body class="override">
@@ -63,8 +92,42 @@
       <div class="row">
 
         <div class="span12">
-					<h2>Main Content</h2>
-					<p>This is the main content</p>
+        	
+        	<ul class="tabs">
+  				<li class="active"><a href="#mapevents">Map Events</a></li>
+  				<li><a href="#listevents">List Events</a></li>
+			</ul>
+ 
+<div class="pill-content">
+  <div class="active" id="mapevents">
+  	<h2>Main Content</h2>
+	<p>This is the main content</p>
+  </div>
+  <div id="listevents">
+  	<h2>Event List</h2>
+  	<h3>Sunday, October 15, 2011</h3>
+  	<ul>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  	</ul>
+  	<h3>Monday, October 16, 2011</h3>
+  	<ul>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  	</ul>
+  	<h3>Tuesday, October 17, 2011</h3>
+  	<ul>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
+  	</ul>
+  	
+  </div>
+</div>
+ 
+		
         </div>
         <div class="span4">
 					<h2>What?</h2>
@@ -108,9 +171,70 @@
     </div>
 </div>
 
+<div class="slide-out-div">
+            <a class="handle" href="http://link-for-non-js-users.html">Content</a>
+            <h3></h3>
+            <form>
+            	<fieldset>
+<legend>Tell us what's happening</legend>
+<div class="clearfix">
+<label for="">Event Name</label>
+<div class="input">
+<input type="text" size="30" name="xlInput" id="xlInput" class="xlarge">
+</div>
+</div> <!-- /clearfix -->
+<div class="clearfix">
+<label for="textarea">Description</label>
+<div class="input">
+<textarea name="textarea" id="textarea" class="large"></textarea>
+<span class="help-block">
+Breifly tell others what's going on</span>
+</div> </div> <!-- /clearfix -->
+<div class="clearfix">
+<label for="">Category</label>
+<div class="input">
+<select>
+<option>Government</option>
+<option>Food</option>
+<option>Sports</option>
+<option>Music</option>
+<option>Educational</option>
+</select>
+</div>
+</div> <!-- /clearfix -->
+<div class="clearfix">
+<label for="">Place</label>
+<div class="input">
+<select>
+<option>Place #1</option>
+<option>Place #2</option>
+<option>Place #3</option>
+<option>Place #4</option>
+<option>Place #5</option>
+</select>
+</div>
+</div> <!-- /clearfix -->
+
+<div class="actions">
+<button class="btn primary" type="submit">Add Event</button>&nbsp;<button class="btn"
+type="reset">Cancel</button>
+</div>
+</fieldset>
+            </form>
+</div>
+
 <script>  
 $(".span4 a[title]").tooltip();
 </script> 
-
+<script>
+  $(function () {
+    $('.tabs').tabs()
+  })
+  $('#.tabs').bind('change', function (e) {
+  e.target // activated tab
+  e.relatedTarget // previous tab
+	})
+</script>
+			
 </body>
 </html>
