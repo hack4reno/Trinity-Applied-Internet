@@ -2,7 +2,7 @@
 *= require bootstrap
 *= require jquery-ui-smoothness
 *= require gmaps4rails
-*= require active_admin
+*= require_tree .
 *= require_self 
 */
 
