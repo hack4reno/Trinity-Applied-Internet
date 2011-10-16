@@ -22,6 +22,7 @@ end
 
 gem 'fastercsv'
 gem 'kaminari'
+gem 'inherited_resources'
 
 gem 'thin'
 gem 'bartt-ssl_requirement', :require => 'ssl_requirement'
