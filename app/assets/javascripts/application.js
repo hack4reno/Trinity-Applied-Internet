@@ -14,7 +14,7 @@ $(document).ready(function(){
 	$('.alert-message').alert();
 	$('.topbar').dropdown();
 	$('.tabs').tabs();
-	$(".span4 .filter a[title]").popover();
+	$(".span4 .filter a").popover();
 	$('.slide-out-div').tabSlideOut({
       tabHandle: '.handle',                     //class of the element that will become your tab
       pathToTabImage: 'assets/add-event-button.jpg', //path to the image for the tab //Optionally can be set using css

@@ -40,25 +40,19 @@
   </div>
   <div id="listevents">
   	<h2>Event List</h2>
-  	<h3>Sunday, October 15, 2011</h3>
+<ul style="display:none;">
+<% 
+last_day = nil
+@events_list.each do |e| -%>
+<% unless last_day == e.start_at.day
+	last_day = e.start_at.day %>
+		</ul>
+  	<h3><%= e.start_at.strftime('%A, %B %e, %Y') %></h3>
   	<ul>
-  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
-  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
-  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
-  	</ul>
-  	<h3>Monday, October 16, 2011</h3>
-  	<ul>
-  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
-  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
-  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
-  	</ul>
-  	<h3>Tuesday, October 17, 2011</h3>
-  	<ul>
-  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
-  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
-  		<li><a href="">Event Title</a> <small><a href="">Event Location</a></small></li>
-  	</ul>
-  	
+<% end -%>
+  		<li><a href=""><%= e.name  %></a>: <small><a href=""><%= e.place.name %></a></small></li>
+<% end -%>
+</ul>  	
   </div>
 </div>
 
