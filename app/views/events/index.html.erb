@@ -124,13 +124,13 @@ Briefly tell others what's going on</span>
 			if( $input.is(':checked') ) {
 				for( $i = 0; $i < len;  $i++  ) {
 					if( jQuery.inArray( val, Gmaps.map.markers[$i].categories ) ) {
-						Gmaps.map.showMarker( Gmaps.map.markers[$i] );
+						Gmaps.map.hideMarker( Gmaps.map.markers[$i] );
 					}
 				}
 			} else {
 				for( $i = 0; $i < len;  $i++  ) {
 					if( jQuery.inArray( val, Gmaps.map.markers[$i].categories ) ) {
-						Gmaps.map.hideMarker( Gmaps.map.markers[$i] );
+						Gmaps.map.showMarker( Gmaps.map.markers[$i] );
 					}
 				}
 			}
