@@ -138,3 +138,106 @@ a.hover { text-decoration: none; font-weight: bold; font-family: 'DroidSansBold'
 .note { font-size: 8px; color: orange; }
 */
 
+/* EVENT SMASH STYLES */
+
+
+.override .fill{
+	background: #332532;
+}
+
+.override .span4 h2 {
+	margin: 0 0 15px 0;
+	color: #644D52;
+}
+
+.override .span4 ul {
+	list-style: none;
+	margin: 0 0 10px 0;
+	padding: 0 0 10px 0;
+	border-bottom: #E2E2E2 1px solid;
+}
+
+.override .span4 ul.last-list {
+	border: none;
+}
+
+.override .span4 ul li{
+	margin: 0 0 15px 0px;
+	padding: 0 0 0 10px;
+	font-size: 20px;
+	color: #F77A52;
+}
+
+.override .span4 ul li input{
+	margin: 0 10px 0 0;
+}
+
+.override .span4 ul li a{
+	color: #F77A52;
+}
+
+.override .span4 ul li a:hover{
+	text-decoration: none;
+}
+
+.override .page-header .logo{
+}
+
+.override .page-header h1{
+	color: #644D52;
+	font-size: 25px;
+	margin: 0 50px 0 0;
+	float:right;
+}
+
+.override .page-header h1 small{
+	color: #FF974F;
+	margin: 0 0 0 20px;
+	font-size: 15px;
+}
+
+.override .span12 h2{
+	color: #644D52;
+}
+
+.override footer img{
+	margin: 0 10px 0 10px;
+}
+
+.override #bottom{
+	background: #332532;
+	height: 100%;
+}
+
+.override #bottom #credits{
+	margin: 0 auto;
+	width: 70%;
+	padding: 20px 0 20px 0;
+	text-align: center;
+}
+
+.override #bottom #credits ul{
+	list-style: none;
+	font-size: 20px;
+}
+
+.override #bottom #credits ul li{
+	margin: 10px 15px 10px 15px;
+	display: inline;
+}
+
+.override #bottom #credits p{
+	color: #ffffff;
+	margin: 0 auto;
+}
+
+/* tooltip styling. by default the element to be styled is .tooltip  */
+.tooltip {
+	display:none;
+	background:transparent url(black_arrow.png);
+	font-size:12px;
+	height:70px;
+	width:160px;
+	padding:25px;
+	color:#fff;	
+}

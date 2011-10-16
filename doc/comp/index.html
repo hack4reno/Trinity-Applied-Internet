@@ -11,7 +11,7 @@
 		<link href="assets/bootstrap.css?body=1" media="screen" rel="stylesheet" type="text/css" />
 	<link href="assets/jquery-ui-smoothness.css?body=1" media="screen" rel="stylesheet" type="text/css" />
 	<link href="assets/application.css?body=1" media="screen" rel="stylesheet" type="text/css" />  
-		<script src="assets/jquery.js?body=1" type="text/javascript"></script>
+	<script src="assets/jquery.js?body=1" type="text/javascript"></script>
 	<script src="assets/jquery-ui.js?body=1" type="text/javascript"></script>
 	<script src="assets/jquery_ujs.js?body=1" type="text/javascript"></script>
 	<script src="assets/bootstrap-0twipsy.js?body=1" type="text/javascript"></script>
@@ -24,13 +24,15 @@
 	<script src="assets/jquery-timepicker.js?body=1" type="text/javascript"></script>
 	<script src="assets/jstz.min.js?body=1" type="text/javascript"></script>
 	<script src="assets/application.js?body=1" type="text/javascript"></script>
+	
+	<script src="assets/jquery.tools.min.js"></script>
 
 </head>
 <body class="override">
   <div class="topbar">
     <div class="fill">
       <div class="container">
-        <a class="brand" href="/" title="All Your Events in one Place">Event Smash!</a>
+        <a class="brand" href="/" title="All Your Events in one Place">EventSmash!</a>
 
        <ul class="nav">
 					<li><a href="#">Home</a></li>
@@ -56,7 +58,7 @@
 
     <div class="content">
       <div class="page-header">
-				<h1>Title <small>Subtitle</small></h1>
+				<img src="assets/es-logo-horizontal.png" title="Event Smash!" class="logo" /><h1>Free your events!<small>An event aggregator to answer the question, what is happening HERE?</small></h1>
       </div>
       <div class="row">
 
@@ -67,16 +69,16 @@
         <div class="span4">
 					<h2>What?</h2>
 					<ul>
-						<li><input type="checkbox" checked="checked" />Category</li>
-						<li><input type="checkbox" checked="checked" />Category</li>
-						<li><input type="checkbox" checked="checked" />Category</li>
-						<li><input type="checkbox" checked="checked" />Category</li>
-						<li><input type="checkbox" checked="checked" />Category</li>
-						<li><input type="checkbox" checked="checked" />Category</li>
+						<li><input type="checkbox" checked="checked" /><a name title="This is where the category 1 tooltip goes.">Category</a></li>
+						<li><input type="checkbox" checked="checked" /><a name title="This is where the category 2 tooltip goes.">Category</a></li>
+						<li><input type="checkbox" checked="checked" /><a name title="This is where the category 3 tooltip goes.">Category</a></li>
+						<li><input type="checkbox" checked="checked" /><a name title="This is where the category 4 tooltip goes.">Category</a></li>
+						<li><input type="checkbox" checked="checked" /><a name title="This is where the category 5 tooltip goes.">Category</a></li>
+						<li><input type="checkbox" checked="checked" /><a name title="This is where the category 6 tooltip goes.">Category</a></li>
 					</ul>
 					
 					<h2>When?</h2>
-					<ul>
+					<ul class="last-list">
 						<li><input type="radio" name="when" checked="checked" />Today</li>
 						<li><input type="radio" name="when" />Tomorrow</li>
 						<li><input type="radio" name="when" />This Week</li>
@@ -89,11 +91,26 @@
     </div>
 
     <footer>
-		  <p>&copy; Trinity Applied Internet 2011</p>
-
+		  <p><a href="http://www.hack4reno.com" target="_blank"><img src="assets/logo_hack4reno.jpg" title="Hack4Reno"/></a><a href="http://trinity-ai.com" target="_blank"><img src="assets/logo_trinity.jpg" title="Trinity Applied Internet"/></a></p>
     </footer>
 
   </div> <!-- /container -->	
+
+<div id="bottom">
+	<div id="credits">
+	<ul>
+    	<li><a href="">About</a></li>
+    	<li><a href="">Thank you</a></li>
+    	<li><a href="">Questions</a></li>
+    	<li><a href="">API</a></li>
+    </ul>
+    <p>&copy; 2011  <a href="http://trinity-ai.com" target="_blank" title="Trinity Applied Internet is a web and applications development company in Reno, Nevada">Trinity Applied Internet</p>
+    </div>
+</div>
+
+<script>  
+$(".span4 a[title]").tooltip();
+</script> 
 
 </body>
 </html>
