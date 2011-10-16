@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
   end
   
   def icon_name
-    categories[0].name.to_lower
+    categories[0].name.downcase
   rescue
     "star"
   end
