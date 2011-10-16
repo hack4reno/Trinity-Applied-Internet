@@ -292,6 +292,7 @@ DEPENDENCIES
   foreman
   gmaps4rails
   icalendar
+  inherited_resources
   jquery-rails (>= 1.0.12)
   kaminari
   meta_search (>= 1.1.0.pre)
