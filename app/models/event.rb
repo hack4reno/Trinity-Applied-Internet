@@ -15,4 +15,16 @@ class Event < ActiveRecord::Base
   def gmaps4rails_address
     "#{place.address_1} #{place.address_2}, #{place.city}, #{place.country}" 
   end
+  
+  before_save :update_position
+  
+  protected
+    def update_position
+      unless place.nil?
+        self.latitude = place.latitude
+        self.longitude = place.longitude
+      end
+      true
+    end
+  
 end

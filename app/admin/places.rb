@@ -8,6 +8,7 @@ ActiveAdmin.register Place do
     column :zipcode
     column :latitude
     column :longitude
+    default_actions
   end
   
   filter :name
