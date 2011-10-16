@@ -27,6 +27,13 @@ class Event < ActiveRecord::Base
     "star"
   end
   
+  def dates
+    return [] if self.start_at.blank?
+    
+    d = [ Date.today, Date.today+1.day, Date.today.end_of_week, (Date.today+7.days).end_of_week, Date.today.end_of_month, (Date.today+30.days).end_of_month ].select {|d| self.start_at.to_date <= d }
+    d.map {|date| date.strftime( '%Y-%m-%d' ) }
+  end
+  
   before_validation :set_defaults
   before_save :update_position
   

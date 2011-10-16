@@ -12,12 +12,13 @@
 </ul>
 <h2>When?</h2>
 <ul class="last-list filter">
-	<li><input type="radio" name="when" value="<%= Date.today %>" checked="checked" />Today</li>
-	<li><input type="radio" name="when" value="<%= Date.today+1.day %>" />Tomorrow</li>
-	<li><input type="radio" name="when" value="<%= Date.today.end_of_week %>" />This Week</li>
-	<li><input type="radio" name="when" value="<%= (Date.today+1.day).end_of_week %>" />Next Week</li>
-	<li><input type="radio" name="when" value="<%= Date.today.end_of_month %>" />This Month</li>
-	<li><input type="radio" name="when" value="<%= (Date.today+30.days).end_of_month %>" />Next Month</li>
+	<li><input type="radio" name="when" class="when" value="Any" checked="checked" selected="selected" />Whenever</li>
+	<li><input type="radio" name="when" class="when" value="<%= Date.today %>" />Today</li>
+	<li><input type="radio" name="when" class="when" value="<%= Date.today+1.day %>" />Tomorrow</li>
+	<li><input type="radio" name="when" class="when" value="<%= Date.today.end_of_week %>" />This Week</li>
+	<li><input type="radio" name="when" class="when" value="<%= (Date.today+7.days).end_of_week %>" />Next Week</li>
+	<li><input type="radio" name="when" class="when" value="<%= Date.today.end_of_month %>" />This Month</li>
+	<li><input type="radio" name="when" class="when" value="<%= (Date.today+30.days).end_of_month %>" />Next Month</li>
 </ul>
 <% end -%>
 
@@ -117,6 +118,18 @@ Briefly tell others what's going on</span>
 <% content_for :scripts do %>
 <% javascript_tag do %>
 	$(document).ready(function(){
+		$('.filter input.when').change( function() {
+			$input = $(this);
+			len = Gmaps.map.markers.length
+			val = $input.val();
+			for( $i = 0; $i < len;  $i++  ) {
+				if( jQuery.inArray( val, Gmaps.map.markers[$i].dates ) != -1 || val == 'Any' ) {
+					Gmaps.map.showMarker( Gmaps.map.markers[$i] );
+				} else {
+					Gmaps.map.hideMarker( Gmaps.map.markers[$i] );					
+				}
+			}
+		});
 		$('.categories input').change( function () {
 			$input = $(this);
 			len = Gmaps.map.markers.length
