@@ -1,7 +1,244 @@
 /*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require_self
- *= require_tree . 
+*= require bootstrap
+*= require jquery-ui-smoothness
+*= require gmaps4rails
+*= require_self 
 */
+
+@font-face {
+	font-family: 'DroidSansRegular';
+  src: url('/fonts/droid/DroidSans-webfont.eot');
+  src: url('/fonts/droid/DroidSans-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/droid/DroidSans-webfont.woff') format('woff'),
+       url('/fonts/droid/DroidSans-webfont.ttf') format('truetype'),
+       url('/fonts/droid/DroidSans-webfont.svg#DroidSansRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DroidSansBold';
+  src: url('/fonts/droid/DroidSans-Bold-webfont.eot');
+  src: url('/fonts/droid/DroidSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/droid/DroidSans-Bold-webfont.woff') format('woff'),
+       url('/fonts/droid/DroidSans-Bold-webfont.ttf') format('truetype'),
+       url('/fonts/droid/DroidSans-Bold-webfont.svg#DroidSansBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body.override { background-color: #eee; font: 13px 'DroidSansRegular', Arial, sans-serif; letter-spacing: 0; }
+
+body.override { padding-top: 40px; }
+
+.container > footer p {
+  text-align: center; /* center align it with the container */
+}
+
+/* The white background content wrapper */
+.content {
+  background-color: #fff;
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  -webkit-border-radius: 0 0 6px 6px;
+     -moz-border-radius: 0 0 6px 6px;
+          border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+          box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+/* Page header tweaks */
+.page-header {
+  background-color: #f5f5f5;
+  padding: 20px 20px 10px;
+  margin: -20px -20px 20px;
+}
+
+
+/* Give a quick and non-cross-browser friendly divider */
+.content .span4 {
+  margin-left: 0;
+  padding-left: 19px;
+  border-left: 1px solid #eee;
+}
+
+.topbar .btn {
+  border: 0;
+}
+
+.topbar form {
+	color: #BFBFBF;
+	font-size: 10px;
+}
+
+table.details {
+	border: 0; padding-right: 20px;	
+}
+table.details td, table.details th {
+	border: 0;
+}
+.tiny {
+	font-size: 11px;
+	border: 0;
+	padding: 3px 5px;
+}
+
+.TODO {
+	font-size: 8px;
+	color: orange;
+}
+
+form div.offset {
+	margin-left: 176px;
+}
+
+.input-prepend .help-block {
+	margin-left: 26px;
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; }
+.ui-timepicker-div dl dd { margin: -25px 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+/*
+.container { position: relative; margin-top: 20px; }
+.wrapper { margin: 20px auto; }
+.user_nav { position: absolute; top: 0px; right: 0px; padding: 5px 10px; color: #888; width: 100%; background-color: #f5f5ff; clear: both; }
+.user_nav .user { float: right; text-align: right; width: 40%; postion: relative; }
+.user_nav .profile { float: left; text-align: left; width: 40%; position: relative; margin-left: 20px; }
+.user_nav a { color: #88F; }
+
+.notice, .alert { text-align: center; padding: 10px 20px; font-size: 18px; font-family: 'DroidSansBold', Arial, sans-serif; font-weight: bold;}
+.notice { color: #555; background-color: yellow; }
+.alert { color: #ccc; background-color: red; }
+
+h1 { line-height: 30px; padding: 5px 0px 15px 0px;}
+h2 { line-height: 20px; padding: 5px 0px 5px 0px;}
+
+a { color: #33f; text-decoration: none; }
+a:visited { color: #55f; text-decoration: none; }
+a.hover { text-decoration: none; font-weight: bold; font-family: 'DroidSansBold', Arial, sans-serif; }
+
+.list { border-collapse: collapse; width: 100%; }
+.list th { font-weight: normal; font-size: 18px; text-align: left; padding: 4px 8px; }
+.list td { text-align: left; padding: 4px 8px; vertical-align: top;}
+.list .odd { background-color: #fff; }
+.list .even { background-color: #eee; }
+.list .update { font-size: 12px; color: #888; width: 60%;  }
+.list td.notice { color: #ccc; text-align: center; font-size: 22px; font-weight: bold; padding: 15px 5px; }
+
+.actions { color: #777; float: right; font-size: 12px; }
+
+.update-form { margin: 10px 0px 30px 10px; }
+
+.note { font-size: 8px; color: orange; }
+*/
+
+/* EVENT SMASH STYLES */
+
+
+.override .fill{
+	background: #332532;
+}
+
+.override .span4 h2 {
+	margin: 0 0 5px 0;
+	color: #644D52;
+}
+
+.override .span4 ul {
+	list-style: none;
+	margin: 0 0 10px 0;
+	padding: 0 0 10px 0;
+	border-bottom: #E2E2E2 1px solid;
+}
+
+.override .span4 ul.last-list {
+	border: none;
+}
+
+.override .span4 ul li{
+	margin: 0 0 5px 0px;
+	padding: 0 0 0 10px;
+	font-size: 12px;
+	color: #F77A52;
+}
+
+.override .span4 ul li input{
+	margin: 0 10px 0 0;
+}
+
+.override .span4 ul li a{
+	color: #F77A52;
+}
+
+.override .span4 ul li a:hover{
+	text-decoration: none;
+}
+
+.override .page-header .logo{
+}
+
+.override .page-header h1{
+	color: #644D52;
+	font-size: 25px;
+	margin: 0 50px 0 0;
+	float:right;
+}
+
+.override .page-header h1 small{
+	color: #FF974F;
+	margin: 0 0 0 20px;
+	font-size: 15px;
+}
+
+.override .span12 h2{
+	color: #644D52;
+}
+
+.override footer img{
+	margin: 0 10px 0 10px;
+}
+
+.override #bottom{
+	background: #332532;
+	height: 100%;
+}
+
+.override #bottom #credits{
+	margin: 0 auto;
+	width: 70%;
+	padding: 20px 0 20px 0;
+	text-align: center;
+}
+
+.override #bottom #credits ul{
+	list-style: none;
+	font-size: 20px;
+}
+
+.override #bottom #credits ul li{
+	margin: 10px 15px 10px 15px;
+	display: inline;
+}
+
+.override #bottom #credits p{
+	color: #ffffff;
+	margin: 0 auto;
+}
+
+/* tooltip styling. by default the element to be styled is .tooltip  */
+.tooltip {
+	display:none;
+	background:transparent url(black_arrow.png);
+	font-size:12px;
+	height:70px;
+	width:160px;
+	padding:25px;
+	color:#fff;	
+}

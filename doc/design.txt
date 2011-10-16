@@ -1,0 +1,65 @@
+Design
+1.  All data is public
+2.  Register via twitter, facebook or google mail/apps
+3.  Pull places from foursquare, facebook?
+4.  HTML5 mobile app
+5.  RGJ data scrape, city of reno?
+
+Non-Registered users
+  Add event
+  Join event
+  search events
+  consume feed
+
+Regstered users
+  edit event
+  create feed
+  use api
+  rate events
+  publish events to twitter, facebook, foursquare
+
+Design:
+  Place (name, lat/long)
+    Address
+    City
+    State
+    Zip
+
+  Name
+  Date (repeating?) look at iCal feed format
+  Time(s)
+  Description (mobile friendly)
+  Category
+  Age Rating 
+  Price ($,$$,$$$,$$$$,$$$$$)
+  URL
+  Rating (Accuracy)
+  
+
+Future Ideas:
+  Add source feed (reg only)
+  Sign up for notifications (follow event, reg only)
+
+Categories
+  School
+  Sports
+  Government
+  Music
+  Arts
+  Education
+  Theater
+  Live
+  Nightlife
+  Training
+  Entertainment
+  Ninjas
+  Pirates
+  Civic
+  Volunteer
+  Drinking
+  Offbeat
+  Literature
+  Tech
+  Comedy
+  Concert
+  Meeting

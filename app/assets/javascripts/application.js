@@ -4,6 +4,20 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery
-//= require jquery_ujs
+//= require jquery  
+//= require jquery-ui
+//= require jquery_ujs  
 //= require_tree .
+//= require_self  
+
+$(document).ready(function(){
+	$('.alert-message').alert();
+	$('.topbar').dropdown();
+});
+
+function keys(obj){
+var a = [];
+$.each(obj, function(k){ a.push(k) });
+return a;
+}
+

@@ -10,6 +10,7 @@
 $(document).ready(function(){
 	$('.alert-message').alert();
 	$('.topbar').dropdown();
+	$(".span4 a[title]").tooltip();
 });
 
 function keys(obj){

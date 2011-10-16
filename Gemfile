@@ -18,6 +18,7 @@ group :production do
 end
 group :development, :test do
   gem 'sqlite3'
+	gem 'therubyracer'
 end
 
 gem 'thin'
@@ -31,11 +32,15 @@ gem 'oa-openid', :require => 'omniauth/openid'
 
 gem 'twitter_oauth'
 gem 'fbgraph', :git => 'git://github.com/pwnall/fbgraph.git'
+gem 'icalendar'
 gem 'uuidtools'
 gem 'foreman'
 gem 'delayed_job'
 gem 'exception_notification_rails3', :require => 'exception_notifier'
-gem 'therubyracer'
+gem 'gmaps4rails'
+gem 'activeadmin'
+gem 'sass-rails'
+gem "meta_search",    '>= 1.1.0.pre'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

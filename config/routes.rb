@@ -1,4 +1,12 @@
 Eventsmash::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  devise_for :users, :controllers => { :registrations => 'registrations', :omniauth_callbacks => "users/omniauth_callbacks" } do
+    get 'auth/:provider' => 'users/omniauth_callbacks#passthru'
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -49,6 +57,7 @@ Eventsmash::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
+  root :to => 'events#index'
 
   # See how all your routes lay out with "rake routes"
 

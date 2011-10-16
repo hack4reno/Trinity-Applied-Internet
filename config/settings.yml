@@ -1,0 +1,11 @@
+twitter:
+  consumer_key: "XeygcQwuvZ22QpbXt4RRQg"
+  consumer_secret: "yD1ZaLurB2VVUtQeOiCV3nG1kY8RnFGHTUW4CnqWbM"
+facebook:
+  app_id: "245368128843885"
+  app_secret: "b043aa6d519436e14dc0f9832d299647"
+foursquare:
+  app_id: "UQIOS0XRKFGWIVQ5W3O50KRZHHQS4HJ0LA4LJYTQZKULU5OG"
+  app_secret: "122NWLDMUY2IEQJ5BSJSLFRP1RXBNKEECYNPAWIRV0FQFMUG" 
+postmark:
+  signature: "support@trinity-ai.com"

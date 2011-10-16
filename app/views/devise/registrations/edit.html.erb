@@ -1,0 +1,83 @@
+<% content_for :header do -%>
+<h1>Update Profile for <%= current_user.email %></h1>
+<% end -%>
+<% content_for :sidebar do -%>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <br /><%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete, :class => 'btn danger' %>.</p>
+
+<% end %>
+
+
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+<% content_for :jstemplates do -%>
+$(document).ready(function(){
+	var tz = '<%= resource.time_zone %>';
+	if( tz == '' ) {
+		var timezone = jstz.determine_timezone();
+		var offset = timezone.offset();
+		$('#user_time_zone option').each( function(){
+		  if( $(this).text().match(offset) ) {
+			  $(this).attr('selected','selected');
+				return false;
+			}
+		});
+		
+		
+		$('#user_time_zone').attr('selectedIndex', offset );
+	}
+});
+<% end -%>
+
+  <%= devise_error_messages! %>
+
+	<div class="clearfix">
+		<%= f.label :email %>
+		<div class="input">
+			<%= f.email_field :email %>
+		</div>
+	</div>
+
+	<div class="clearfix">
+		<%= f.label :time_zone %>
+		<div class="input">
+			<%= f.time_zone_select :time_zone %>
+		</div>
+	</div>
+
+
+
+	<div class="clearfix">
+		<%= f.label :password %>
+		<div class="input">
+			<%= f.email_field :password %>
+			<span class="help-block">(leave blank if you don't want to change it)</span>
+		</div>
+	</div>
+
+	<div class="clearfix">
+		<%= f.label :password_confirmation %>
+		<div class="input">
+			<%= f.email_field :password_confirmation %>
+		</div>
+	</div>
+
+<!--
+	<div class="clearfix">
+		<%= f.label :current_password %>
+		<div class="input">
+			<%= f.email_field :current_password %>
+			<span class="help-block">(we need your current password to confirm your changes)</span>
+		</div>
+	</div>
+-->
+
+	<div class="actions">
+	<%= f.submit 'Update', :class => 'btn primary' %>
+	</div>
+<% end %>
+
+
+<%= link_to "Back", :back %>
