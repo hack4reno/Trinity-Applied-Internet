@@ -24,6 +24,7 @@ class Event < ActiveRecord::Base
         self.latitude = place.latitude
         self.longitude = place.longitude
       end
+      self.repeat_frequency = RepeatFrequency.find_by_name('None') if self.repeat_frequency_id.blank?
       true
     end
   
