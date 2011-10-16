@@ -20,6 +20,10 @@ group :development, :test do
 	gem 'therubyracer'
 end
 
+gem 'fastercsv'
+gem 'kaminari'
+gem 'inherited_resources'
+
 gem 'thin'
 gem 'bartt-ssl_requirement', :require => 'ssl_requirement'
 
@@ -37,7 +41,7 @@ gem 'foreman'
 gem 'delayed_job'
 gem 'exception_notification_rails3', :require => 'exception_notifier'
 gem 'gmaps4rails'
-gem 'activeadmin'
+gem 'activeadmin', :git => 'git://github.com/JustinLove/active_admin.git'
 gem "meta_search",    '>= 1.1.0.pre'
 gem 'sass-rails',   '~> 3.1.4'
 
