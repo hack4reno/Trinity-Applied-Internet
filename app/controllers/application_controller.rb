@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   APP_DOMAIN = 'eventsmashapp.com'
   protect_from_forgery
   
-  before_filter :ensure_domain, :require_basic_auth
+  before_filter :ensure_domain #, :require_basic_auth
   around_filter :set_time_zone
   
   def require_basic_auth
