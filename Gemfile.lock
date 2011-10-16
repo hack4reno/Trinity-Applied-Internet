@@ -289,6 +289,7 @@ DEPENDENCIES
   gmaps4rails
   icalendar
   jquery-rails (>= 1.0.12)
+  meta_search (>= 1.1.0.pre)
   oa-openid
   omniauth (>= 0.2.6)
   pg

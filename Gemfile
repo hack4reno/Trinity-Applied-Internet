@@ -39,7 +39,6 @@ gem 'delayed_job'
 gem 'exception_notification_rails3', :require => 'exception_notifier'
 gem 'gmaps4rails'
 gem 'activeadmin'
-gem 'sass-rails'
 gem "meta_search",    '>= 1.1.0.pre'
 
 # To use ActiveModel has_secure_password
