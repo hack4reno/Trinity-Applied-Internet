@@ -5,7 +5,6 @@ gem 'rails', '3.1.1'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.4'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
 end
@@ -18,6 +17,7 @@ group :production do
 end
 group :development, :test do
   gem 'sqlite3'
+	gem 'therubyracer'
 end
 
 gem 'thin'
@@ -31,11 +31,15 @@ gem 'oa-openid', :require => 'omniauth/openid'
 
 gem 'twitter_oauth'
 gem 'fbgraph', :git => 'git://github.com/pwnall/fbgraph.git'
+gem 'icalendar'
 gem 'uuidtools'
 gem 'foreman'
 gem 'delayed_job'
 gem 'exception_notification_rails3', :require => 'exception_notifier'
-gem 'therubyracer'
+gem 'gmaps4rails'
+gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'
+gem 'sass-rails',   '~> 3.1.4'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

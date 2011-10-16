@@ -16,7 +16,7 @@ module Eventsmash
     # -- all .rb files in that directory are automatically loaded.
 
     # Custom directories with classes and modules you want to be autoloadable.
-    # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/app/jobs)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -41,8 +41,20 @@ module Eventsmash
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.assets.initialize_on_precompile = false
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Configure the default encoding used in templates for Ruby 1.9.
+    config.encoding = "utf-8"
+
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.delivery_method       = :postmark
+    config.action_mailer.postmark_settings     = { :api_key => "cfa41645-a89e-4e14-93bb-613f9d93868f" }
+    config.action_mailer.default_url_options   = { :host => 'eventsmashapp.com' }
+        
+    # for devise controller overrides
+    config.paths["app/views"] << "app/views/devise"
   end
 end

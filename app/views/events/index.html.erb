@@ -1,0 +1,32 @@
+<% content_for :header do -%>
+	<%= image_tag "es-logo-horizontal.png", :title => 'Event Smash!', :alt => 'Event Smash!', :class => 'logo' %>
+	<h1>Free your events!<small>An event aggregator to answer the question, what is happening HERE?</small></h1>
+<% end -%>
+<% content_for :sidebar do -%>
+<h2>What?</h2>
+<ul>
+	<% @categories.each do |c| -%>
+	<li><%= check_box_tag 'Categories', :checked => 'checked' %><%= link_to c.name, :title => c.description, :name => 'name' %></li>
+	<% end -%>
+</ul>
+<h2>When?</h2>
+<ul class="last-list">
+	<li><input type="radio" name="when" checked="checked" />Today</li>
+	<li><input type="radio" name="when" />Tomorrow</li>
+	<li><input type="radio" name="when" />This Week</li>
+	<li><input type="radio" name="when" />Next Week</li>
+	<li><input type="radio" name="when" />This Month</li>
+	<li><input type="radio" name="when" />Next Month</li>
+</ul>
+<% end -%>
+
+<!-- 
+<%= @events %>
+-->
+
+<div>
+<%= gmaps({
+"map_options" => { "zoom" => 12, "auto_adjust" => true },
+"markers" => { "data" => @events }
+}) %>
+</div>
