@@ -5,12 +5,8 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Event Smash! Admin Area"
+  config.site_title = "Eventsmash"
 
-  # Set the link url for the title. For example, to take 
-  # users to your main site. Defaults to no link.
-  #
-  # config.site_title_link = "/"
 
   # == Default Namespace
   #
@@ -25,9 +21,8 @@ ActiveAdmin.setup do |config|
   #
   # To set no namespace by default, use:
   #   config.default_namespace = false
-  #
-  # Default:
-  # config.default_namespace = :admin
+  config.default_namespace = :admin
+
 
   # == User Authentication
   #
@@ -58,15 +53,11 @@ ActiveAdmin.setup do |config|
   # This setting changes the path where the link points to. If it's
   # a string, the strings is used as the path. If it's a Symbol, we
   # will call the method to return the path.
-  #
-  # Default:
-  # config.logout_link_path = :destroy_admin_user_session_path
+  config.logout_link_path = :destroy_admin_user_session_path
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
-  #
-  # Default:
-  # config.logout_link_method = :get
+  config.logout_link_method = :delete
 
 
   # == Admin Comments
@@ -77,7 +68,6 @@ ActiveAdmin.setup do |config|
   # namespace only. You can turn them on in a namesapce
   # by adding them to the comments array.
   #
-  # Default:
   # config.allow_comments_in = [:admin]
 
 
