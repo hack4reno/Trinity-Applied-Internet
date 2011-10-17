@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   def index
+    flash[:notice] = "Welcome to the sneak peek of Reno's EventSmash! This proof-of-concept app was built in 24 hours at Hack4Reno October 15-16, 2011. The calendar events originally loaded into the system were for test purposes only, and not all the intended features are up and running yet. You are welcome to enter events (without creating an account) and you can check this space for updates once we have a more fully operational version available."
+    
     @events = Event.all.to_gmaps4rails do |event|      
       "\"title\": \"#{event.name}\", \"picture\": \"http://eventsmashapp.com/assets/#{event.icon_name}.png\", \"width\": \"25\", \"length\": \"25\", \"categories\": [\"#{event.categories.collect(&:name).join('", "')}\"], \"dates\": [\"#{event.dates.join('","')}\"]"
     end
@@ -16,7 +18,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        flash[:notice] = 'You event was successfully added.'
+        flash[:notice] = 'Your event was successfully added.'
         format.html { redirect_to(root_url) }
       else
         flash[:error] = 'There was a problem saving your event.'
