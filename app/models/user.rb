@@ -14,8 +14,6 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :title, :company, :deleted, :time_zone
   
-  after_create :setup_defaults 
-  
   def name
     "#{first_name} #{last_name}"
   end
@@ -66,14 +64,4 @@ class User < ActiveRecord::Base
     update_attributes(params) 
   end
   
-  protected 
-    def setup_defaults
-      # create a default account for this user
-      account = Account.create!( :name => "#{first_name} #{last_name}'s Profile", :active => true, :creator => self )
-      
-      # make this user the owner of said account
-      AccountUser.create!( :account => account, :user => self, :account_role => AccountRole.find_by_name('Owner') )
-      
-      update_attribute( :default_account_id, account.uuid )
-    end
 end
