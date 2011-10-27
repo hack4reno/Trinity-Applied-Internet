@@ -121,7 +121,6 @@ form div.offset {
 h1 { line-height: 30px; padding: 5px 0px 15px 0px;}
 h2 { line-height: 20px; padding: 5px 0px 5px 0px;}
 
-a { color: #33f; text-decoration: none; }
 a:visited { color: #55f; text-decoration: none; }
 a.hover { text-decoration: none; font-weight: bold; font-family: 'DroidSansBold', Arial, sans-serif; }
 
@@ -142,6 +141,8 @@ a.hover { text-decoration: none; font-weight: bold; font-family: 'DroidSansBold'
 
 /* EVENT SMASH STYLES */
 
+a { text-decoration: none; }
+a.btn { text-decoration: none; }
 
 .override .fill{
 	background: #332532;

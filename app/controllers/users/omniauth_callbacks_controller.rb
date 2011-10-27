@@ -27,7 +27,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
 
     #create a new user
-    logger.error omniauth.inspect
     unless omniauth.recursive_find_by_key("email").blank?
       user = User.find_or_initialize_by_email(:email => omniauth.recursive_find_by_key("email"))
     else
@@ -40,7 +39,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth['provider'] 
       sign_in_and_redirect(:user, user)
     else
-      logger.error user.inspect
       session[:omniauth] = omniauth.except('extra')
       redirect_to new_user_registration_url
     end

@@ -14,8 +14,15 @@ class Event < ActiveRecord::Base
   belongs_to :repeat_frequency
   belongs_to :age_rating
   belongs_to :price
+  belongs_to :creator,  :class_name => User
+  belongs_to :last_editor, :class_name => User
   
   has_many   :event_ratings
+  has_many   :event_complaints
+  
+  def to_label
+    self.name
+  end
 
   def gmaps4rails_address
     "#{place.address_1} #{place.address_2}, #{place.city}, #{place.country}" 

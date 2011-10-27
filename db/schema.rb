@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111016161012) do
+ActiveRecord::Schema.define(:version => 20111021220424) do
 
   create_table "access_tokens", :force => true do |t|
     t.integer  "user_id"
@@ -143,30 +143,51 @@ ActiveRecord::Schema.define(:version => 20111016161012) do
     t.datetime "updated_at"
   end
 
-  create_table "event_ratings", :force => true do |t|
+  create_table "event_complaints", :id => false, :force => true do |t|
+    t.string   "uuid",           :limit => 36, :null => false
+    t.string   "event_id",       :limit => 36, :null => false
+    t.string   "complaint_type"
+    t.string   "user_id",        :limit => 36, :null => false
+    t.string   "ip_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "event_ratings", :id => false, :force => true do |t|
     t.string   "uuid",       :limit => 36, :null => false
     t.string   "event_id",   :limit => 36, :null => false
+    t.string   "user_id",    :limit => 36, :null => false
+    t.integer  "rating",                   :null => false
+    t.string   "ip_address"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "events", :id => false, :force => true do |t|
-    t.string   "uuid",                :limit => 36,                                 :null => false
+    t.string   "uuid",                :limit => 36,                                                    :null => false
     t.string   "original_event_id",   :limit => 36
     t.string   "name"
     t.text     "description"
     t.decimal  "latitude",                          :precision => 14, :scale => 10
     t.decimal  "longitude",                         :precision => 14, :scale => 10
-    t.string   "place_id",            :limit => 36,                                 :null => false
+    t.string   "place_id",            :limit => 36,                                                    :null => false
     t.datetime "start_at"
     t.datetime "end_at"
-    t.string   "repeat_frequency_id", :limit => 36,                                 :null => false
+    t.string   "repeat_frequency_id", :limit => 36,                                                    :null => false
     t.text     "cancelled_dates"
-    t.string   "age_rating_id",       :limit => 36,                                 :null => false
-    t.string   "price_id",            :limit => 36,                                 :null => false
+    t.string   "age_rating_id",       :limit => 36,                                                    :null => false
+    t.string   "price_id",            :limit => 36,                                                    :null => false
     t.boolean  "gmaps"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "created_by",          :limit => 36
+    t.string   "updated_by",          :limit => 36
+    t.boolean  "is_spam",                                                           :default => false, :null => false
+    t.boolean  "is_inaccurate",                                                     :default => false, :null => false
+    t.boolean  "is_private",                                                        :default => false, :null => false
+    t.boolean  "is_cancelled",                                                      :default => false, :null => false
+    t.boolean  "is_deleted",                                                        :default => false, :null => false
+    t.float    "rating"
   end
 
   add_index "events", ["age_rating_id"], :name => "index_events_on_age_rating_id"
@@ -180,21 +201,48 @@ ActiveRecord::Schema.define(:version => 20111016161012) do
   add_index "events", ["start_at", "end_at"], :name => "index_events_on_start_at_and_end_at"
   add_index "events", ["start_at"], :name => "index_events_on_start_at"
 
+  create_table "place_complaints", :id => false, :force => true do |t|
+    t.string   "uuid",           :limit => 36, :null => false
+    t.string   "place_id",       :limit => 36, :null => false
+    t.string   "complaint_type"
+    t.string   "user_id",        :limit => 36, :null => false
+    t.string   "ip_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "place_ratings", :id => false, :force => true do |t|
+    t.string   "uuid",       :limit => 36, :null => false
+    t.string   "place_id",   :limit => 36, :null => false
+    t.string   "user_id",    :limit => 36, :null => false
+    t.integer  "rating",                   :null => false
+    t.string   "ip_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "places", :id => false, :force => true do |t|
-    t.string   "uuid",        :limit => 36,                                                    :null => false
+    t.string   "uuid",               :limit => 36,                                                    :null => false
     t.string   "name"
     t.text     "description"
-    t.decimal  "latitude",                  :precision => 14, :scale => 10
-    t.decimal  "longitude",                 :precision => 14, :scale => 10
+    t.decimal  "latitude",                         :precision => 14, :scale => 10
+    t.decimal  "longitude",                        :precision => 14, :scale => 10
     t.string   "address_1"
     t.string   "address_2"
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
-    t.string   "country",                                                   :default => "USA"
+    t.string   "country",                                                          :default => "USA"
     t.boolean  "gmaps"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "created_by",         :limit => 36
+    t.string   "updated_by",         :limit => 36
+    t.string   "authentic_place_id", :limit => 36
+    t.boolean  "is_spam",                                                          :default => false, :null => false
+    t.boolean  "is_inaccurate",                                                    :default => false, :null => false
+    t.boolean  "is_duplicate",                                                     :default => false, :null => false
+    t.boolean  "is_private",                                                       :default => false, :null => false
   end
 
   create_table "prices", :id => false, :force => true do |t|

@@ -2,12 +2,13 @@
 <h1>Sign Up</h1>
 <% end -%>
 
+<% content_for :sidebar do -%>
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-  <p style="text-align: center;"><%= link_to "Sign Up with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), :class => 'btn large primary' %></p>
+  <p><%= link_to "Sign Up with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), :class => 'btn large primary' %></p>
   <% end -%>
 
-	<h2 style="text-align: center;">&mdash; OR &mdash;</h2>
+<% end -%>
 <% end -%>
 
 

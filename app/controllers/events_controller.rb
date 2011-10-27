@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     flash[:notice] = "Welcome to the sneak peek of Reno's EventSmash! This proof-of-concept app was built in 24 hours at Hack4Reno October 15-16, 2011. The calendar events originally loaded into the system were for test purposes only, and not all the intended features are up and running yet. You are welcome to enter events (without creating an account) and you can check this space for updates once we have a more fully operational version available."
     

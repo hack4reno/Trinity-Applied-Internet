@@ -59,7 +59,8 @@ ActiveAdmin.setup do |config|
   # link. For example :get, :delete, :put, etc..
   config.logout_link_method = :delete
 
-
+  config.site_title = "Event Smash!"
+  
   # == Admin Comments
   #
   # Admin comments allow you to add comments to any model for admin use

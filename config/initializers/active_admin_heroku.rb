@@ -1,3 +1,4 @@
+# from https://gist.github.com/1012619
 if Rails.env.production?
   require 'fileutils'
   FileUtils.mkdir_p(Rails.root.join("tmp", "stylesheets", "admin"))

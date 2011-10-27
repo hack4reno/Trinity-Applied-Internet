@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :user_tokens, :dependent => :destroy
   has_many :authorizations, :dependent => :destroy
   
+  has_many :events
+  has_many :places
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -16,6 +19,10 @@ class User < ActiveRecord::Base
   
   def name
     "#{first_name} #{last_name}"
+  end
+  
+  def anonymous?
+    new_record?
   end
   
   def soft_delete
@@ -54,7 +61,7 @@ class User < ActiveRecord::Base
   def password_required?
     (user_tokens.empty? || !password.blank?) && super  
   end
-  
+
   # bypasses Devise's requirement to re-enter current password to edit
   def update_with_password(params={}) 
     if params[:password].blank? 

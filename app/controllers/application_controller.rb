@@ -31,4 +31,7 @@ class ApplicationController < ActionController::Base
     Time.zone = old_time_zone
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
 end
